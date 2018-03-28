@@ -1,0 +1,141 @@
+html {
+	font-family: Facebook Letter Faces, Arial;
+	background-color: #3b5999;
+	color: #fff;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+body {
+	margin: 0;
+}
+
+#app {
+	height: 100%;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.caption {
+	text-align: center;
+}
+
+.snafu {
+	color: white;
+	font-size: 15vw;
+	letter-spacing: -0.02em;
+	position: relative;
+}
+
+@media screen and (min-width: 1200px) {
+	.snafu {
+		font-size: 200px;
+	}
+}
+
+.snafu:before {
+	content: attr(data-text);
+	position: absolute;
+	left: -2px;
+	text-shadow: 1px 0 blue;
+	top: 0;
+	color: white;
+	letter-spacing: normal;
+	background: #3b5999;
+	overflow: hidden;
+			clip: rect(0, 9999px, 200px, 0);
+
+	animation: glitch-anim-back 1.5s infinite cubic-bezier(0.35, 1.15, 0.71, 0.06);
+}
+
+.snafu:after {
+	content: attr(data-text);
+	position: absolute;
+	left: 2px;
+	text-shadow: -1px 0 red;
+	top: 0;
+	color: white;
+	letter-spacing: normal;
+	background: #3b5999;
+	overflow: hidden;
+			clip: rect(0, 9999px, 200px, 0);
+
+	animation: glitch-anim-front 1.5s infinite cubic-bezier(0.35, 1.15, 0.71, 0.06), glitch-blur 1.5s infinite;
+}
+
+@keyframes glitch-blur {
+	0% {
+		filter: blur(0px);
+	}
+	50% {
+		filter: blur(0.1px);
+	}
+	55% {
+		filter: blur(1px);
+	}
+}
+
+@keyframes glitch-anim-front {
+	0% {
+		clip: rect(0, 9999px, 200px, 0);
+	}
+	30% {
+		clip: rect(127px, 9999px, 196px, 0);
+	}
+	35% {
+		clip: rect(139px, 9999px, 135px, 0);
+	}
+	40% {
+		clip: rect(96px, 9999px, 119px, 0);
+	}
+	45% {
+		clip: rect(54px, 9999px, 115px, 0);
+	}
+	50% {
+		clip: rect(152px, 9999px, 176px, 0);
+	}
+	55% {
+		clip: rect(99px, 9999px, 117px, 0);
+	}
+	60% {
+		clip: rect(79px, 9999px, 118px, 0);
+	}
+	80% {
+		clip: rect(0, 0, 0, 0);
+	}
+}
+
+@keyframes glitch-anim-back {
+	0% {
+		clip: rect(0, 9999px, 200px, 0);
+	}
+	35% {
+		clip: rect(20px, 9999px, 77px, 0);
+	}
+	40% {
+		clip: rect(18px, 9999px, 31px, 0);
+	}
+	45% {
+		clip: rect(38px, 9999px, 69px, 0);
+	}
+	50% {
+		clip: rect(9px, 9999px, 55px, 0);
+	}
+	55% {
+		clip: rect(20px, 9999px, 74px, 0);
+	}
+	60% {
+		clip: rect(79px, 9999px, 118px, 0);
+	}
+	80% {
+		clip: rect(0, 0, 0, 0);
+	}
+}
